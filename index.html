@@ -24,7 +24,7 @@ video{
 }
 .wrap{
     position: absolute;
-    bottom: 40px;
+    bottom: 10px;
 
 }
 button{
@@ -34,7 +34,7 @@ button{
     color:white;
     background: #000;
     cursor: pointer;
-   
+   border-radius: 15px;
     font-size: 24px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -47,9 +47,9 @@ img{
     <img src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" alt="" id="my-image">
 <video src="" id="my-video"></video>
 <div class="wrap">
-    <button onclick="clickMe()">click to see your face</button>
-    <button id="front-button">front of camera</button>
-    <button id="back-button">back of camera</button>
+    <button onclick="clickMe()">click </button>
+    <button id="front-button" onclick="changefront()">front</button>
+    <button id="back-button" onclick="changeback()">back </button>
 
 </div>
 
@@ -110,15 +110,27 @@ function clickMe(){
  
   }
 
-  var front = false;
-document.getElementById('front-button').onclick = function() { front = !front; };
+  function changefront(){
+    var front = false;
+// var front_btn = document.getElementById('front-button');
 
-var constraints = { video: { facingMode: (front? "user" : "environment") } };
+front = !front; 
+ var constraints = { video: { facingMode: (front? "user" : "environment") } };
+console.log(constraints)
+};
+  
 
+  function changeback(){
+   
+    // var front_btn = document.getElementById('front-button')
 var back = false;
-document.getElementById('back-button').onclick = function() { back = !back; };
+
+back = !back;
 
 var constraints = { video: { facingMode: (back? "user" : "environment") } };
+  }
+
+
     </script>
 </body>
 </html>
